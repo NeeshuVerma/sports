@@ -1,0 +1,501 @@
+<html>
+
+<head>
+  <title>directory</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.webp">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="img/x-icon" alt="logo" href="images/schoollogo.jfif">
+
+
+  <style>
+    .nav1 {
+      color: red;
+      text-shadow: 2px 2px 4px #000000;
+    }
+
+    .nav2 img {
+      color: red;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .class1 {
+      color: black;
+      text-shadow: 2px 2px 4px grey;
+
+    }
+
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 130px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      padding: 12px 16px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .gallery-item {
+      position: relative;
+      width: calc(100%- 20px);
+      height: 400px;
+      width: 1480px;
+      margin: 20px;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.1);
+    }
+
+
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.6);
+      }
+
+      to {
+        transform: scale(1);
+      }
+    }
+
+    .modal.show {
+      display: flex;
+      opacity: 1;
+    }
+
+
+    @media screen and (max-width: 1000px) {
+      .gallery-item {
+        width: calc(100% - 20px);
+      }
+    }
+
+
+    .container {
+      position: relative;
+      font-family: Arial;
+    }
+
+    .text-block {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      left: 20px;
+      background-color: black;
+      color: white;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .dropdown-menu {
+      background-color: #F8F8F8;
+
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f1c40f;
+
+    }
+
+    .dropdown:hover.dropdown-content {
+      display: block;
+    }
+
+
+
+    .nav3 li {
+      color: white;
+      text-shadow: 2px 2px 4px #EAF4FC;
+    }
+
+    #myid {
+      background-color: #4C4646 !important;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    .conclustion {
+      height: 350px;
+      background-color: #101214;
+      color: white;
+      text-align: center;
+
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- navbar1 -->
+  <div class="container">
+  </div>
+  <nav class="navbar navbar-expand-sm bg-info navbar-dark nav1">
+    <ul class="navbar-nav">
+      <li class="nav-item active" style="border-right:1px solid #bbbbbb; margin-left:100px;">
+        <a class="nav-link active " href="#"><b> हरियाणा सरकार</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#"><b>Government of Haryana</b></a>
+      </li>
+      <li class="nav-item" style="margin-left:800px; border-right:1px solid #bbbbbb;">
+        <a class="nav-link active" href="#"><b><i class="fa-solid fa-outdent" style="font-size:20px;"></i></b></a>
+      </li>
+      <li class="nav-item" style="border-right:1px solid #bbbbbb; ">
+        <a class="nav-link active" href="#"><b><i class="fa-solid fa-chart-diagram" style="font-size:20px;"></i></b></a>
+      </li>
+      <li class="nav-item" style="border-right:1px solid #bbbbbb;">
+        <a class="nav-link active" href="#"><b><i class="fa-solid fa-person" style="font-size:20px;"></i></b></a>
+      </li>
+      <li class="nav-item" style="border-right:1px solid #bbbbbb;">
+        <a class="nav-link active" href="#"><b><i class="fa-solid fa-magnifying-glass"
+              style="font-size:20px;"></i></b></a>
+      </li>
+    </ul>
+  </nav>
+
+  <!--nav2-->
+
+  <div>
+    <nav class="navbar navbar-expand-sm bg-light navbar-light nav2">
+      <div class="container-fluid" style="margin-left:100px;">
+        <a class="navbar-brand" href="#">
+          <img src="images/haryanalogo.jpeg" alt="Logo" style="width:100px;" class="rounded-pill">
+
+          <h3 class="class1" style="margin-top:-75px; margin-left:130px;"><b>Sports Department of Haryana</b> </h3>
+          <p style="margin-top:10px; margin-left:120px; font-weight: 600;">"The journey of a thousand miles begins with
+            one step."</p>
+        </a>
+      </div>
+      <a href=" https://www.digitalindia.gov.in/">
+        <img src="images/digitalindia.jpg" alt="Logo" style="width:100px; margin-right:100px; height:100px; width:200px;">
+      </a>
+    </nav>
+  </div>
+
+  <!-- <nav3> -->
+
+
+  <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+
+    <ul class="navbar-nav" style="margin-left:80px;">
+      <li class="nav-item active" style="border-right:1px solid #bbbbbb; color:white;">
+        <a class="nav-link" href="website.html">Home</a>
+      </li>
+
+
+      <li class="nav-item active dropdown" style="border-right:1px solid #bbbbbb; color:white; padding-left:10px;">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">About Department</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="introduction.html">Introduction</a>
+          <a class="dropdown-item" href="directory.html">Directory</a>
+        </div>
+      </li>
+
+      <li class="nav-item active" style="border-right:1px solid #bbbbbb; color:white; padding-left:10px;">
+        <a class="nav-link" href="jobopp.html">Job Oppportunities</a>
+      </li>
+
+      <li class="nav-item active dropdown" style="border-right:1px solid #bbbbbb; color:white; padding-left:10px;">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Haryana's Heroes</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="Asian.html">Olymic/Asian Games </a>
+          <a class="dropdown-item" href="local-star.html">Local star players</a>
+        </div>
+      </li>
+
+      <li class="nav-item active" style="border-right:1px solid #bbbbbb; color:white; padding-left:10px;">
+        <a class="nav-link" href="vision.html">Vision & Missoin</a>
+      </li>
+
+      <li class="nav-item active" style="border-right:1px solid #bbbbbb; color:white; padding-left:10px;">
+        <a class="nav-link" href="awards.html">Awards & Appreciations</a>
+      </li>
+
+
+      <li class="nav-item active dropdown" style=" color:white; padding-left:10px;">
+        <a class="nav-link dropdown-toggle" href="schemes.html" id="navbardrop"
+          data-toggle="dropdown">Schemes/Programmes</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="schemes.html">State Government</a>
+        </div>
+
+    </ul>
+  </nav>
+
+  <img src="images/culture.jpg" alt="culture" width="1520" height="180">
+  </br></br></br>
+
+  <h2 style="margin-left:200px;">Directory</h2>
+  </br>
+  <div class="container">
+    <table style="width:100%">
+      <tr>
+        <th style="height:50px">&nbsp&nbsp Sr. Name &nbsp </th>
+        <th>&nbsp&nbsp Name</th>
+        <th>&nbsp&nbsp Designation</th>
+        <th>&nbsp&nbsp Office Address</th>
+        <th>&nbsp&nbsp Contact / Email</th>
+      </tr>
+
+      <tr>
+        <td style="height:20px">1. </td>
+        <td>Sh. Gaurav Gautam</td>
+        <td>Hon’ble Minister of State for</br>
+          Sports, Government of Haryana</td>
+        <td>Room No. 40, 6th Floor, Haryana </br>
+          Civil Secretariat, Chandigarh</br></br>
+          #75, Sector-7, Chd. </td>
+        <td>0172-2740145 (O) </td>
+      </tr>
+
+      <tr>
+        <td>2. </td>
+        <td>Sh. Vijay Singh Dahiya, IAS</td>
+        <td>Commissioner & Secretary to Government,</br>
+          Haryana, Sports Department</td>
+        <td>Haryana Civil Secretariat,</br></br>
+          Chandigarh. </td>
+        <td>ps-sports@hry.gov.in </td>
+      </tr>
+
+      <tr>
+        <td>3. </td>
+        <td>Sh. Parth Gupta, IAS</td>
+        <td>Director Sports</td>
+        <td>Khel Bhavan, Tau Devilal Sports</br>
+          Complex, Sector-3, Panchkula. </td>
+        <td>0172-2992868</br></br>
+          sportshry@gmail.com </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">4. </td>
+        <td>Sh. Ashwani Malik, HCS</td>
+        <td>Additional Director (Admn.)</td>
+        <td> </td>
+        <td>0172- 2930359 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">5. </td>
+        <td>Smt. Nirmla Gulia</td>
+        <td>Deputy Director (HQ)</td>
+        <td> </td>
+        <td>94169-35364</td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">6. </td>
+        <td>Sh. Jagdish Singh</td>
+        <td>Deputy Director (Admn)</td>
+        <td> </td>
+        <td>94162-13055 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">7. </td>
+        <td>Sh. Satbir Singh</td>
+        <td>Deputy Director (HQ)</td>
+        <td> </td>
+        <td>98878-00043 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">8. </td>
+        <td>Sh. Manjit Singh</td>
+        <td>Deputy Director (HQ)</td>
+        <td> </td>
+        <td>99143-26786 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">9. </td>
+        <td>Smt. Sudha Bhasin</td>
+        <td>Deputy Director (HQ)</td>
+        <td> </td>
+        <td>94164-94758 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">10. </td>
+        <td>Smt. Sandhu Bala</td>
+        <td>Deputy Director (HQ)</td>
+        <td> </td>
+        <td>99920-62068 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">11. </td>
+        <td>Sh. Lalit Chopra</td>
+        <td>Chief Accounts Officer</td>
+        <td> </td>
+        <td>94178-68518 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">12. </td>
+        <td>-Vacant-</td>
+        <td>Assistant District Attorney</td>
+        <td> </td>
+        <td> — </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">13. </td>
+        <td>Smt. Lalita</td>
+        <td>Accounts Officer</td>
+        <td> </td>
+        <td>94642-51449 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">14. </td>
+        <td>-Vacant-</td>
+        <td>Establishment Officer</td>
+        <td> </td>
+        <td> — </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">15. </td>
+        <td>Sh. Rajesh Singh</td>
+        <td>Budget Planning Officer</td>
+        <td> </td>
+        <td>87085-96426 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">16. </td>
+        <td>Smt. Laxmi Pant</td>
+        <td>Assistant Director Yoga</td>
+        <td> </td>
+        <td>99960-49165 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">17. </td>
+        <td>Sh. Meenakshi Chauhan</td>
+        <td>Sports Officer (HQ)</td>
+        <td> </td>
+        <td>94173-07210 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">18. </td>
+        <td>Sh. Jitender Kumar</td>
+        <td>System Executive Officer</td>
+        <td> </td>
+        <td>99993-78678 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">19. </td>
+        <td>Sh. Devender Kumar</td>
+        <td>Superintendent</td>
+        <td> </td>
+        <td>98682-10820 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">20. </td>
+        <td>Sh. Azad Singh</td>
+        <td>Superintendent</td>
+        <td> </td>
+        <td>94169-50525 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">21. </td>
+        <td>Sh. Ramphal Dahiya</td>
+        <td>Superintendent</td>
+        <td> </td>
+        <td>94675-70962 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">22. </td>
+        <td>Sh. Surender Kumar</td>
+        <td>Superintendent</td>
+        <td> </td>
+        <td>94164-91547 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">23. </td>
+        <td>Smt. Renuka Nirman</td>
+        <td>Superintendent</td>
+        <td> </td>
+        <td>97176-80282 </td>
+      </tr>
+
+      <tr>
+        <td style="height:35px">24. </td>
+        <td>Sh. Ram Karan</td>
+        <td>Superintendent</td>
+        <td> </td>
+        <td>94660-53863 </td>
+      </tr>
+
+
+    </table>
+    </br></br>
+  </div>
+  <br><br>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav" style="margin-left:300px; ">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Feedback</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Website Policies</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Contact Us</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link active" href="#">Help</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link active" href="#">Web Information Manager</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="conclustion">
+    <p>
+      <br>
+      Content Owned by Sports Department , Govt. of Haryana <br>
+
+      Developed and hosted by <a href="https://www.nic.gov.in/">National Informatics Centre,</a> <br>
+      <a href="https://www.meity.gov.in/">
+        Ministry of Electronics & Information Technology,</a> Government of India
+      <br><br>
+      Last Updated: <b> January 06, 2026</b>
+    </p>
+    <br><br>
+    <img src="images/swaas.png" alt="swaas web page">
+    <img src="images/nic.png" alt="nic web page">
+    <img src="images/digital india.png" alt="digital india web page">
+  </div>
+
+</body>
+
+</html>

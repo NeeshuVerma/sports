@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Dashboard</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body { margin:0; font-family:Arial; }
+
+.sidebar {
+    width:220px;
+    height:100vh;
+    background:#0f9aa7;
+    color:white;
+    position:fixed;
+}
+
+.sidebar h4 { padding:20px; }
+
+.sidebar a {
+    display:block;
+    color:white;
+    padding:12px 20px;
+    text-decoration:none;
+}
+
+.sidebar a:hover { background:#0c7f89; }
+
+.content {
+    margin-left:220px;
+    padding:30px;
+    background:#f5f7f8;
+    min-height:100vh;
+}
+
+.card-box {
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h4>Admin Panel</h4>
+    <a href="#" onclick="showSection('news')">📰 Manage News</a>
+    <a href="#" onclick="showSection('jobs')">💼 Manage Jobs</a>
+    <a href="#" onclick="showSection('heroes')">🏆 Manage Heroes</a>
+    <a href="#" onclick="showSection('schemes')">📜 Manage Schemes</a>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+    <!-- NEWS -->
+    <div id="news" class="card-box">
+        <h4>Add News</h4>
+        <input type="text" id="newsInput" class="form-control mb-2" placeholder="Enter news">
+        <button class="btn btn-primary" onclick="addNews()">Add</button>
+        <ul id="newsList" class="mt-3"></ul>
+    </div>
+
+    <!-- JOBS -->
+    <div id="jobs" class="card-box" style="display:none">
+        <h4>Add Job</h4>
+        <input type="text" id="jobInput" class="form-control mb-2" placeholder="Job Title">
+        <button class="btn btn-success" onclick="addJob()">Add</button>
+        <ul id="jobList" class="mt-3"></ul>
+    </div>
+
+    <!-- HEROES -->
+    <div id="heroes" class="card-box" style="display:none">
+        <h4>Add Hero</h4>
+        <input type="text" id="heroInput" class="form-control mb-2" placeholder="Player Name">
+        <button class="btn btn-warning" onclick="addHero()">Add</button>
+        <ul id="heroList" class="mt-3"></ul>
+    </div>
+
+    <!-- SCHEMES -->
+    <div id="schemes" class="card-box" style="display:none">
+        <h4>Add Scheme</h4>
+        <input type="text" id="schemeInput" class="form-control mb-2" placeholder="Scheme Name">
+        <button class="btn btn-info" onclick="addScheme()">Add</button>
+        <ul id="schemeList" class="mt-3"></ul>
+    </div>
+
+</div>
+
+<script>
+function showSection(id){
+    document.querySelectorAll(".card-box").forEach(sec=>sec.style.display="none");
+    document.getElementById(id).style.display="block";
+}
+
+function addItem(inputId, listId){
+    let val = document.getElementById(inputId).value;
+    if(val==="") return;
+    let li = document.createElement("li");
+    li.innerHTML = val + " <button onclick='this.parentElement.remove()'>❌</button>";
+    document.getElementById(listId).appendChild(li);
+    document.getElementById(inputId).value="";
+}
+
+function addNews(){ addItem("newsInput","newsList"); }
+function addJob(){ addItem("jobInput","jobList"); }
+function addHero(){ addItem("heroInput","heroList"); }
+function addScheme(){ addItem("schemeInput","schemeList"); }
+</script>
+
+</body>
+</html>

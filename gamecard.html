@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sports Department of Haryana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" type="image/x-icon" href="images/favicon.webp">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+
+<style>
+*{margin:0}
+.nav1{color:red;text-shadow:2px 2px 4px #000}
+.class1{text-shadow:2px 2px 4px grey}
+.gallery-item{width:100%;height:auto;margin:20px 0;transition:.5s}
+.gallery-item:hover{transform:scale(1.05)}
+.news-section{background:#f8f6ef}
+.news-title{font-weight:bold;font-size:28px}
+.news-list{list-style:none;padding-left:0}
+.news-list li{padding-left:20px;margin-bottom:15px;position:relative;cursor:pointer}
+.news-list li::before{content:"▶";position:absolute;left:0;font-size:12px}
+.conclustion{background:#101214;color:#fff;text-align:center;padding:30px 10px}
+
+/* Circular Menu */
+.fsElementContent{position:fixed;top:0;right:0;width:100vw;height:100vh;background:#212529;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;clip-path:circle(0% at calc(100% - 40px) 40px);transition:.8s;z-index:1050}
+.fsElementContent.show{clip-path:circle(80% at calc(100% - 40px) 40px)}
+.toggle-btn{position:fixed;top:25px;right:25px;width:60px;height:60px;border-radius:50%;background:#1FA3B1;color:#fff;font-size:24px;border:none;z-index:1100}
+
+/* RESPONSIVE FIX */
+@media(max-width:992px){
+.nav1 ul,.navbar-nav{text-align:center;margin-left:0!important}
+.nav2 .container-fluid{text-align:center;margin-left:0!important}
+.class1{margin:10px 0!important;text-align:center}
+.gallery-item{margin:10px 0}
+.col-md-1{flex:0 0 50%;max-width:50%;margin-bottom:15px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<nav class="navbar navbar-expand-sm bg-info navbar-dark nav1">
+<ul class="navbar-nav mx-auto">
+<li class="nav-item"><a class="nav-link" href="#">हरियाणा सरकार</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Government of Haryana</a></li>
+</ul>
+</nav>
+
+<!-- LOGO BAR -->
+<nav class="navbar navbar-light bg-light nav2">
+<div class="container text-center text-md-left">
+<img src="images/haryanalogo.jpeg" style="width:90px" class="mr-3">
+<div>
+<h3 class="class1">Sports Department of Haryana</h3>
+<p>"The journey of a thousand miles begins with one step."</p>
+</div>
+</div>
+</nav>
+
+<!-- MAIN NAV -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+<button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="mainMenu">
+<ul class="navbar-nav mx-auto">
+<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Job Opportunities</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Haryana's Heroes</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Awards</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Schemes</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- HERO IMAGE -->
+<img src="images/players.jpg" class="gallery-item img-fluid">
+
+<!-- ABOUT -->
+<div class="container py-5">
+<div class="row align-items-center">
+<div class="col-md-6">
+<h2>About Department</h2>
+<p>Sports is an essential part of life in Haryana. The accomplishments of our athletes give Haryana a source of pride...</p>
+<button class="btn btn-warning">Read More</button>
+</div>
+<div class="col-md-6 text-center">
+<img src="images/nayab.avif" class="img-fluid rounded mb-2" style="max-height:120px">
+<img src="images/gaurav.jpeg" class="img-fluid rounded mb-2" style="max-height:120px">
+</div>
+</div>
+</div>
+
+<!-- NEWS -->
+<div class="news-section py-5">
+<div class="container">
+<h2 class="news-title">NEWS/PRESS RELEASES</h2>
+<div class="row">
+<div class="col-md-6">
+<ul class="news-list">
+<li>Invites Application for Engagement...</li>
+<li>Registration Form for Selection...</li>
+<li>Citizen Charter 2024-25</li>
+</ul>
+</div>
+<div class="col-md-6">
+<ul class="nav nav-tabs">
+<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#new">What's New</a></li>
+<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tender">Tenders</a></li>
+</ul>
+<div class="tab-content border p-3">
+<div id="new" class="tab-pane fade show active">EXPLANATORY MEMORANDUM...</div>
+<div id="tender" class="tab-pane fade">No active tenders.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<nav class="navbar navbar-dark bg-dark">
+<ul class="navbar-nav flex-row mx-auto">
+<li class="nav-item mx-2"><a class="nav-link" href="#">Contact</a></li>
+<li class="nav-item mx-2"><a class="nav-link" href="#">Help</a></li>
+</ul>
+</nav>
+
+<div class="conclustion">
+Content Owned by Sports Department , Govt. of Haryana<br>
+Last Updated: January 06, 2026
+</div>
+
+<!-- CIRCULAR MENU -->
+<button id="menuToggle" class="toggle-btn">☰</button>
+<div class="fsElementContent">
+<h2>Quick Access</h2>
+<a href="#">Scholarship</a>
+<a href="#">Media</a>
+<a href="#">Contact</a>
+</div>
+
+<script>
+const btn=document.getElementById("menuToggle");
+const menu=document.querySelector(".fsElementContent");
+btn.onclick=()=>menu.classList.toggle("show");
+</script>
+
+</body>
+</html>

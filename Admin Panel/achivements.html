@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Achievements & Medals | Haryana Sports</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+:root {
+    --primary: #0d6efd;
+    --secondary: #198754;
+    --bg: #f4f6fb;
+}
+
+body {
+    background: var(--bg);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+    position: fixed;
+    background: linear-gradient(180deg, var(--primary), var(--secondary));
+    color: #fff;
+}
+
+.sidebar a {
+    color: rgba(255,255,255,0.9);
+    padding: 12px 20px;
+    display: flex;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: rgba(255,255,255,0.2);
+}
+
+/* Main */
+.main {
+    margin-left: 260px;
+    padding: 20px;
+}
+
+/* Cards */
+.card-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .sidebar{
+        position: static;
+        width: 100%;
+    }
+    .main{
+        margin-left: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar p-3">
+    <h4 class="text-center mb-4">🏅 Haryana Sports</h4>
+    <a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+    <a href="athlete.html"><i class="bi bi-person-plus"></i> Athlete Registration</a>
+    <a href="sports.html"><i class="bi bi-trophy"></i> Sports Events</a>
+    <a href="stadium.html"><i class="bi bi-building"></i> Stadiums</a>
+    <a href="achievements.html" class="active"><i class="bi bi-award"></i> Achievements & Medals</a>
+    <a href="logout.html"><i class="bi bi-box-arrow-right"></i> Logout</a>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+    <div class="mb-4">
+        <h4>Achievements & Medals</h4>
+        <p class="text-muted">Record athlete achievements and medal details</p>
+    </div>
+
+    <!-- Achievement Form -->
+    <div class="card-box mb-4">
+        <h5 class="mb-3">Add Achievement</h5>
+
+        <form id="achievementForm">
+            <div class="row g-3">
+
+                <div class="col-md-4">
+                    <label class="form-label">Achievement ID</label>
+                    <input type="text" class="form-control" id="achievementId" placeholder="ACH101">
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label">Athlete Name</label>
+                    <input type="text" class="form-control" id="athleteName">
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label">Sport</label>
+                    <select class="form-select" id="sport">
+                        <option value="">Select</option>
+                        <option>Athletics</option>
+                        <option>Wrestling</option>
+                        <option>Boxing</option>
+                        <option>Kabaddi</option>
+                        <option>Hockey</option>
+                        <option>Badminton</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label">Event Name</label>
+                    <input type="text" class="form-control" id="eventName">
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label">Event Level</label>
+                    <select class="form-select" id="level">
+                        <option value="">Select</option>
+                        <option>District</option>
+                        <option>State</option>
+                        <option>National</option>
+                        <option>International</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label">Medal</label>
+                    <select class="form-select" id="medal">
+                        <option value="">Select</option>
+                        <option>Gold</option>
+                        <option>Silver</option>
+                        <option>Bronze</option>
+                        <option>Participation</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label">Year</label>
+                    <input type="number" class="form-control" id="year" placeholder="2026">
+                </div>
+
+                <div class="col-md-8">
+                    <label class="form-label">Remarks</label>
+                    <input type="text" class="form-control" id="remarks">
+                </div>
+
+            </div>
+
+            <div class="mt-4 text-end">
+                <button type="reset" class="btn btn-secondary">Clear</button>
+                <button type="submit" class="btn btn-primary">Save Achievement</button>
+            </div>
+        </form>
+
+        <div id="msg" class="mt-3"></div>
+    </div>
+
+    <!-- Achievements Table -->
+    <div class="card-box">
+        <h5 class="mb-3">Achievements & Medals List</h5>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Achievement ID</th>
+                        <th>Athlete</th>
+                        <th>Sport</th>
+                        <th>Event</th>
+                        <th>Level</th>
+                        <th>Medal</th>
+                        <th>Year</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>ACH101</td>
+                        <td>Neeraj Chopra</td>
+                        <td>Athletics</td>
+                        <td>Olympics</td>
+                        <td>International</td>
+                        <td><span class="badge bg-warning text-dark">Gold</span></td>
+                        <td>2021</td>
+                        <td>Historic performance</td>
+                    </tr>
+
+                    <tr>
+                        <td>ACH102</td>
+                        <td>Sakshi Malik</td>
+                        <td>Wrestling</td>
+                        <td>World Championship</td>
+                        <td>International</td>
+                        <td><span class="badge bg-secondary">Silver</span></td>
+                        <td>2022</td>
+                        <td>Excellent comeback</td>
+                    </tr>
+
+                    <tr>
+                        <td>ACH103</td>
+                        <td>Bajrang Punia</td>
+                        <td>Wrestling</td>
+                        <td>Asian Games</td>
+                        <td>International</td>
+                        <td><span class="badge bg-danger">Bronze</span></td>
+                        <td>2023</td>
+                        <td>Consistent performer</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<!-- JS -->
+<script>
+document.getElementById("achievementForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let fields = [
+        "achievementId","athleteName","sport",
+        "eventName","level","medal","year","remarks"
+    ];
+
+    let valid = true;
+    fields.forEach(id => {
+        if(document.getElementById(id).value.trim() === ""){
+            valid = false;
+        }
+    });
+
+    let msg = document.getElementById("msg");
+
+    if(!valid){
+        msg.innerHTML = `<div class="alert alert-danger">
+            Please fill all fields before saving achievement.
+        </div>`;
+    } else {
+        msg.innerHTML = `<div class="alert alert-success">
+            Achievement saved successfully!
+        </div>`;
+        document.getElementById("achievementForm").reset();
+    }
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sports Department of Haryana</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.webp">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="img/x-icon" alt="logo" href="images/schoollogo.jfif">
+
+
+  <style>
+    * {
+      margin: 0%;
+
+    }
+
+    .nav1 {
+      color: red;
+      text-shadow: 2px 2px 4px #000000;
+    }
+
+    .nav2 img {
+      color: red;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .class1 {
+      color: black;
+      text-shadow: 2px 2px 4px grey;
+
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 130px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      padding: 12px 16px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* ===== Circular Toggle Menu Styles ===== */
+    .fsElementContent {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #212529;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      clip-path: circle(0% at calc(100% - 40px) 40px);
+      /* Start point */
+      transition: clip-path 0.8s ease-in-out;
+      z-index: 1050;
+      text-align: center;
+    }
+
+    .fsElementContent.show {
+      clip-path: circle(80% at calc(100% - 40px) 40px);
+      /* Control expansion size */
+    }
+
+    .fsElementContent h2 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .fsElementContent a {
+      color: #fff;
+      font-size: 1.2rem;
+      display: block;
+      margin: 10px 0;
+      text-decoration: none;
+    }
+
+    .fsElementContent a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Circular Toggle Button ===== */
+    .toggle-btn {
+      position: fixed;
+      top: 25px;
+      right: 25px;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: #dc3545;
+      color: #fff;
+      font-size: 28px;
+      font-weight: bold;
+      border: none;
+      outline: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1100;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Button zoom-in effect on hover */
+    .toggle-btn:hover {
+      transform: scale(1.15);
+      /* Zoom-out effect */
+    }
+
+    /* Icon inside the button */
+    .toggle-btn span {
+      position: absolute;
+      transition: all 0.4s ease;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Text that slides in */
+    .toggle-btn::after {
+      content: attr(data-hover);
+      position: absolute;
+      opacity: 0;
+      font-size: 12px;
+      font-weight: 500;
+      transform: translateX(-100%);
+      transition: all 0.5s ease;
+      white-space: nowrap;
+    }
+
+    /* On hover: icon slides out right, text slides in left */
+    .toggle-btn:hover span {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+
+    .toggle-btn:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .gallery-item {
+      position: relative;
+      /* width: calc(100%- 20px); */
+      height: 400px;
+      width: 100%;
+      margin: 20px;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.6);
+      }
+
+      to {
+        transform: scale(1);
+      }
+    }
+
+    .modal.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    @media screen and (max-width: 1000px) {
+      .gallery-item {
+        width: calc(100% - 20px);
+      }
+    }
+
+    .container {
+      position: relative;
+      font-family: Arial;
+
+    }
+
+    .text-block {
+      position: relative;
+      bottom: 20px;
+      right: 20px;
+      left: 20px;
+      background-color: black;
+      color: white;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .dropdown-menu {
+      background-color: #F8F8F8;
+
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f1c40f;
+
+    }
+
+    .dropdown:hover.dropdown-content {
+      display: block;
+    }
+
+    .nav3 li {
+      color: white;
+      text-shadow: 2px 2px 4px #EAF4FC;
+    }
+
+    .conclustion {
+      height: 350px;
+      background-color: #101214;
+      color: white;
+      text-align: center;
+
+    }
+
+
+    .news-section {
+      background-color: #f8f6ef;
+    }
+
+    .news-title {
+      font-weight: bold;
+      font-size: 28px;
+    }
+
+    .news-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .news-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .news-list li::before {
+      content: "▶";
+      position: absolute;
+      left: 0;
+      color: black;
+      font-size: 12px;
+    }
+
+    .news-list li:hover {
+      color: #c0392b;
+      transform: translateX(5px);
+    }
+
+    .news-tabs .nav-tabs .nav-link {
+      background: #eaeaea;
+      border: none;
+      margin-right: 5px;
+      font-weight: 500;
+    }
+
+    .news-tabs .nav-tabs .nav-link.active {
+      background: white;
+      border-bottom: 2px solid black;
+    }
+
+    .tab-box {
+      background: #f1efe8;
+      border: 1px solid #ddd;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- navbar1 -->
+
+  <nav class="navbar navbar-expand-sm bg-info navbar-dark nav1" style="height: 50px;">
+    <ul class="navbar-nav">
+      <li class="nav-item active" style="border-right:1px solid #bbbbbb; margin-left:100px;">
+        <a class="nav-link active " href="#"><b> हरियाणा सरकार</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#"><b>Government of Haryana</b></a>
+      </li>
+      <li class="nav-item" style="margin-left:800px; border-right:1px solid #bbbbbb;">
+        <a class="nav-link active" href="#"><b><i class="fa-solid fa-outdent" style="font-size:20px;"></i></b></a>
+      </li>
+      <li class="nav-item" style="border-right:1px solid #bbbbbb; ">
+        <a class="nav-link active" href="#"><b><i class="fa-solid fa-chart-diagram" style="font-size:20px;"></i></b></a>
+      </li>
+      <li class="nav-item" style="border-right:1px solid #bbbbbb;">
+        <a class="nav-link active" href="#"><b><i class="fa-solid fa-person" style="font-size:20px;"></i></b></a>
+      </li>
+      <li class="nav-item" style="border-right:1px solid #bbbbbb;">
+        <a class="nav-link active" href="#"><b><i class="fa-solid fa-magnifying-glass"
+              style="font-size:20px;"></i></b></a>
+      </li>
+    </ul>
+  </nav>
+
+  <!--nav2-->
+
+  <div>
+    <nav class="navbar navbar-expand-sm bg-light navbar-light nav2">
+      <div class="container-fluid" style="margin-left:100px;">
+        <a class="navbar-brand" href="#">
+          <img src="images/haryanalogo.jpeg" alt="Logo" style="width:100px;" class="rounded-pill">
+
+          <h3 class="class1" style="margin-top:-75px; margin-left:130px;"><b>Sports Department of Haryana</b> </h3>
+          <p style="margin-top:10px; margin-left:120px; font-weight: 600;">"The journey of a thousand miles begins with
+            one step."</p>
+        </a>
+      </div>
+      <a href=" https://www.digitalindia.gov.in/">
+        <img src="images/digitalindia.jpg" alt="Logo" style="width:100px; margin-right:100px; height:100px; width:200px;">
+      </a>
+    </nav>
+  </div>
+
+
+  <!-- <nav3> -->
+
+  <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+
+    <ul class="navbar-nav" style="margin-left:80px;">
+      <li class="nav-item active" style="border-right:1px solid #bbbbbb; color:white;">
+        <a class="nav-link" href="website.html">Home</a>
+      </li>
+
+
+      <li class="nav-item active dropdown" style="border-right:1px solid #bbbbbb; color:white; padding-left:10px;">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">About Department</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="introduction.html">Introduction</a>
+          <a class="dropdown-item" href="directory.html">Directory</a>
+        </div>
+      </li>
+
+      <li class="nav-item active" style="border-right:1px solid #bbbbbb; color:white; padding-left:10px;">
+        <a class="nav-link" href="jobopp.html">Job Oppportunities</a>
+      </li>
+
+      <li class="nav-item active dropdown" style="border-right:1px solid #bbbbbb; color:white; padding-left:10px;">
+        <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">Haryana's Heroes</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="Asian.html">Olymic/Asian Games </a>
+          <a class="dropdown-item" href="local-star.html">Local star players</a>
+        </div>
+      </li>
+
+      <li class="nav-item active" style="border-right:1px solid #bbbbbb; color:white; padding-left:10px;">
+        <a class="nav-link" href="vision.html">Vision & Missoin</a>
+      </li>
+
+      <li class="nav-item active" style="border-right:1px solid #bbbbbb; color:white; padding-left:10px;">
+        <a class="nav-link" href="awards.html">Awards & Appreciations</a>
+      </li>
+
+
+      <li class="nav-item active dropdown" style=" color:white; padding-left:10px;">
+        <a class="nav-link dropdown-toggle" href="schemes.html" id="navbardrop"
+          data-toggle="dropdown">Schemes/Programmes</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">State Government</a>
+        </div>
+
+    </ul>
+
+
+
+
+
+
+
+    <!-- 🔴 Circular Toggle Button (Top Right Corner) -->
+    <button id="menuToggle" class="toggle-btn" data-hover="Open Menu"
+      style="margin:165px 30px 0px 0px ; background-color: #1FA3B1;">
+      <span>☰</span></button>
+
+    <!-- 🔵 Expanding Circular Menu -->
+    <div class="fsElementContent">
+      <h2> Quick Access </h2>
+      <a href="website.html">💼 Scholarship</a>
+      <a href="index.html">Media Corner</a>
+      <a href="#">
+        <!-- <i class="fa-solid fa-trophy" style="color:rgb(255, 212, 59);"></i> -->
+        Notices</a>
+
+      <a href="#">📞 Contact</a>
+    </div>
+
+    <!-- JS for Toggle -->
+    <script>
+      const toggleBtn = document.getElementById("menuToggle");
+      const menu = document.querySelector(".fsElementContent");
+      const iconSpan = toggleBtn.querySelector("span");
+
+      toggleBtn.addEventListener("click", () => {
+        menu.classList.toggle("show");
+
+        if (menu.classList.contains("show")) {
+          iconSpan.textContent = "✖"; // Show close icon
+          toggleBtn.style.backgroundColor = "#6c757d";
+          toggleBtn.setAttribute("data-hover", "Close"); // Change hover text
+        } else {
+          iconSpan.textContent = "☰"; // Show menu icon
+          toggleBtn.style.backgroundColor = "#dc3545";
+          toggleBtn.setAttribute("data-hover", "Open");
+        }
+      });
+    </script>
+
+
+  </nav>
+
+
+
+  <!-- image1 -->
+
+  <div class="gallery">
+    <img src="images/players.jpg" alt="players" class="gallery-item" onclick="openModal('modal1', 'Cinque Terre')" width="%"
+      height="900px">
+
+  </div>
+
+  <!-- About Department -->
+  <br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-6">
+        <h2 style=" padding-top:30px; font-weight:700; box-shadow:2px 3px 4px #4f4d4d; color:#004242;">About Department
+        </h2>
+        <p style="padding-top:10px; font-weight:400;">Sports is an essential part of life in Haryana.
+          The accomplishments of our athletes give Haryana <br> a source of pride. Sports provide a means for personal
+          and social development, as well as being<br>
+          an end in itself. Haryana has identified population health, community building, social <br>
+          development, nation building, and civic engagement as areas in which […]
+        </p>
+        <button type="button" class="btn btn-warning" style="margin-left:80px;">Read More</button>
+      </div>
+      <!-- cards	  -->
+
+      <div class="col-md-1" style=" background-color:#FAF9F6;">
+        <img class="card-img-top" src="images/nayab.avif" alt="Card image" style="width:100%" />
+        <div class="card-body text-center">
+          <p class="card-text" style=" font-size:12px;"><b>Sh.Nayab Singh</b></p>
+          <p class="card-text" style=" font-size:12px;">Hon'ble CM Haryana</p>
+        </div>
+      </div>&nbsp;&nbsp;&nbsp;
+      <div class="col-md-1" style="background-color:#FAF9F6;">
+        <img class="card-img-top" src="images/gaurav.jpeg" alt="Card image" style="width:100%; height:110px;" />
+        <div class="card-body text-center">
+          <p class="card-text" style=" font-size:12px; "><b>Sh.Gaurav Gautam</b></p>
+          <p class="card-text" style=" font-size:12px;">Minister of State for Sports</p>
+        </div>
+      </div>&nbsp;&nbsp;&nbsp;
+
+      <div class="col-md-1" style="background-color:#FAF9F6;">
+        <img class="card-img-top" src="images/navdeep.png" alt="Card image" style="width:100%" />
+        <div class="card-body text-center">
+          <p class="card-text" style=" font-size:12px;"><b>Sh.Navdeep Singh Virk, IPS</b></p>
+          <p class="card-text" style=" font-size:12px;">Principal Secretary Sports</p>
+        </div>
+      </div>&nbsp;&nbsp;&nbsp;
+
+      <div class="col-md-1" style="background-color:#FAF9F6;">
+        <img class="card-img-top" src="images/sanjeev.jpg" alt="Card image" style="width:100%" />
+        <div class="card-body text-center">
+          <p class="card-text" style=" font-size:12px;"><b>Sh. Sanjeev Verma, IAS</b></p>
+          <p class="card-text" style=" font-size:12px;">Director General Sports</p>
+        </div>
+      </div>&nbsp;&nbsp;&nbsp;
+
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+  <div class="container-fluid news-section py-5">
+    <div class="container">
+      <br>
+      <!-- Heading -->
+      <h2 class="news-title mb-4">NEWS/PRESS RELEASES</h2>
+
+      <div class="row">
+
+        <!-- Left Side News List -->
+        <div class="col-md-6">
+          <ul class="news-list">
+            <li>Invites Application for Engagement of Employees on Contractual Basis for Khelo India State Centre of
+              Excellence (KISCE)</li>
+            <li>Registration Form for the Selection of Athletes in Khelo India State Centre of Excellence, Haryana 2025
+            </li>
+            <li>Citizen Charter 2024-25</li>
+            <li>Online invitation for Cash Award to National/International level Sportspersons for Sports Achievement
+              from 01-04-2024 and onward</li>
+            <li>Application Form For Scholarship to Students For Sports Achievements From 01-01-2023 to 31-03-2024</li>
+          </ul>
+        </div>
+
+        <!-- Right Side Tabs -->
+        <div class="col-md-6">
+          <div class="news-tabs">
+
+            <ul class="nav nav-tabs" id="newsTab" role="tablist">
+              <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#whatsnew">What's New</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tenders">Tenders</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#press">NEWS/PRESS RELEASES</button>
+              </li>
+            </ul>
+
+            <div class="tab-content p-3 tab-box">
+              <div class="tab-pane fade show active" id="whatsnew">
+                <ul>
+                  <li>EXPLANATORY MEMORANDUM OF THE SCHEME - 2020-2021</li>
+                </ul>
+              </div>
+
+              <div class="tab-pane fade" id="tenders">
+                <ul>
+                  <li>No active tenders at the moment.</li>
+                </ul>
+              </div>
+
+              <div class="tab-pane fade" id="press">
+                <ul>
+                  <li>Latest sports department announcements will appear here.</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+
+
+
+  <br><br>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav" style="margin-left:300px; ">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Feedback</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Website Policies</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Contact Us</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link active" href="#">Help</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link active" href="#">Web Information Manager</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="conclustion">
+    <p>
+      <br>
+      Content Owned by Sports Department , Govt. of Haryana <br>
+
+      Developed and hosted by <a href="https://www.nic.gov.in/">National Informatics Centre,</a> <br>
+      <a href="https://www.meity.gov.in/">
+        Ministry of Electronics & Information Technology,</a> Government of India
+      <br><br>
+      Last Updated: <b> January 06, 2026</b>
+    </p>
+    <br><br>
+    <img src="images/swaas.png" alt="swaas web page">
+    <img src="images/nic.png" alt="nic web page">
+    <img src="images/digital india.png" alt="digital india web page">
+  </div>
+
+
+
+</body>
+
+</html>
